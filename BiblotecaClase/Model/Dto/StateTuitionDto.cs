@@ -7,14 +7,17 @@ using System.Threading.Tasks;
 
 namespace BiblotecaClase.Model.Dto
 {
-    public class CursoCreateDto
+    public class StateTuitionDto
     {
-
+        [Key]
+        public int StateId { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string Nombre { get; set; }
+        public string Name { get; set; }
 
+        public bool State { get; set; }
 
+        public DateTime RegistrationDate { get; set; } = DateTime.Now;
     }
 }

@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace BiblotecaClase.Model.Dto
 {
-    public class CursoUpdateDto
+    public class CourseCreateDto
     {
-        [Key]
-        public int CursoId { get; set; }
+
 
         [Required]
         [StringLength(100)]
-        public string Nombre { get; set; }
+        public string Name { get; set; }
+        public bool State { get; set; }
+
+
     }
 }

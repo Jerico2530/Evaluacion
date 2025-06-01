@@ -9,20 +9,24 @@ namespace Evaluacion.Mapping
     {
         public MappingConfig()
         {
-            CreateMap<Matricula, MatriculaCreateDto>().ReverseMap();
-            CreateMap<Matricula, MatriculaDto>().ReverseMap();
-            CreateMap<Matricula, MatriculaUpdateDto>().ReverseMap();
+            CreateMap<Tuition, TuitionCreateDto>().ReverseMap();
+            CreateMap<Tuition, TuitionDto>().ReverseMap();
+            CreateMap<Tuition, TuitionUpdateDto>().ReverseMap();
 
 
 
-            CreateMap<Estudiante, EstudianteCreateDto>().ReverseMap();
-            CreateMap<Estudiante, EstudianteDto>().ReverseMap();
-            CreateMap<Estudiante, EstudianteUpdateDto>().ReverseMap();
+            CreateMap<Student, StudentCreateDto>().ReverseMap();
+            CreateMap<Student, StudentDto>().ReverseMap();
+            CreateMap<Student, StudentUpdateDto>().ReverseMap();
 
 
-            CreateMap<Curso, CursoDto>().ReverseMap();
-            CreateMap<Curso, CursoCreateDto>().ReverseMap();
-            CreateMap<Curso, CursoUpdateDto>().ReverseMap();
+            CreateMap<Course, CourseDto>().ReverseMap();
+            CreateMap<Course, CourseCreateDto>().ReverseMap();
+            CreateMap<Course, CourseUpdateDto>().ReverseMap();
+
+            CreateMap<StateTuition, StateTuitionDto>().ReverseMap();
+            CreateMap<StateTuition, StateTuitionCreateDto>().ReverseMap();
+            CreateMap<StateTuition, StateTuitionUpdateDto>().ReverseMap();
 
 
         }

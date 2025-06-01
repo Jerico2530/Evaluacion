@@ -12,10 +12,11 @@ namespace BiblotecaClase.Datos
     {
         public BackendContext(DbContextOptions<BackendContext> options) : base(options) { }
 
-        public DbSet<Curso> Cursos { get; set; }
-        public DbSet<Estudiante> Estudiantes { get; set; }
-        public DbSet<Matricula> Matriculas { get; set; }
-        
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Tuition> Tuitions { get; set; }
+        public DbSet<StateTuition> StateTuitions { get; set; }
 
-    }
+
+	}
 }

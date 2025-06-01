@@ -8,18 +8,20 @@ using System.Threading.Tasks;
 
 namespace BiblotecaClase.Model
 {
-    [Table("Curso")]
-    public class Curso
+    [Table("Course")]
+    public class Course
     {
 
         [Key]
-        public int CursoId { get; set; }
+        public int CourseId { get; set; }
 
         [Required]
         [StringLength(100)]
-        public string Nombre { get; set; }
+        public string Name { get; set; }
+		public bool State { get; set; }
 
-        public DateTime FechaRegistro { get; set; } = DateTime.Now;
+
+		public DateTime RegistrationDate { get; set; } = DateTime.Now;
 
     }
 }

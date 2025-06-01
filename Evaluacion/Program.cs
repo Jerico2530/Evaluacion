@@ -1,8 +1,7 @@
 using BiblotecaClase.Datos;
 using Evaluacion.Mapping;
-using Evaluacion.Repositorio;
-using Evaluacion.Repositorio.IRepositorio;
-using Evaluacion.Service;
+using Evaluacion.Repository;
+using Evaluacion.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -34,11 +33,11 @@ builder.Services.AddDbContext<BackendContext>((serviceProvider, options) =>
 // AutoMapper
 builder.Services.AddAutoMapper(typeof(MappingConfig));
 
-// Repositorios y servicios
-builder.Services.AddScoped<IEstudianteRepositorio, EstudianteRepositorio>();
-builder.Services.AddScoped<ICursoRepositorio, CursoRepositorio>();
-builder.Services.AddScoped<IMatriculaRepositorio, MatriculaRepositorio>();
-builder.Services.AddScoped<MatriculaService>();
+// Repositorys y servicios
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<ITuitionRepository, TuitionRepository>();
+builder.Services.AddScoped<IStateTuitionRepository, StateTuitionRepository>();
 
 var app = builder.Build();
 

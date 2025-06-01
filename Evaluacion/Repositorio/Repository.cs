@@ -1,33 +1,33 @@
 ﻿using BiblotecaClase.Datos;
-using Evaluacion.Repositorio.IRepositorio;
+using Evaluacion.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using System.Linq;
 
-namespace Evaluacion.Repositorio
+namespace Evaluacion.Repository
 {
-    public class Repositorio<T> : IRepositorio<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly BackendContext _db;
         internal DbSet<T> dbSet;
 
-        public Repositorio(BackendContext db)
+        public Repository(BackendContext db)
         {
             _db = db;
             this.dbSet = _db.Set<T>();
         }
 
-        public async Task Crear(T entidad)
+        public async Task Create(T entidad)
         {
             await dbSet.AddAsync(entidad);
-            await Grabar();
+            await Save();
         }
-        public async Task Grabar()
+        public async Task Save()
         {
             await _db.SaveChangesAsync();
         }
 
-        public async Task<T> Obtener(Expression<Func<T, bool>> filtro = null, bool tracked = true)
+        public async Task<T> Gett(Expression<Func<T, bool>> filtro = null, bool tracked = true)
         {
             IQueryable<T> query = dbSet;
             if (!tracked)
@@ -42,7 +42,7 @@ namespace Evaluacion.Repositorio
             return await query.FirstOrDefaultAsync();
         }
 
-        public async Task<List<T>> ObtenerTodo(Expression<Func<T, bool>>? filtro = null)
+        public async Task<List<T>> GettAll(Expression<Func<T, bool>>? filtro = null)
         {
             IQueryable<T> query = dbSet;
             if (filtro != null)
@@ -54,10 +54,10 @@ namespace Evaluacion.Repositorio
 
         }
 
-        public async Task Remover(T entidad)
+        public async Task Remove(T entidad)
         {
             dbSet.Remove(entidad);
-            await Grabar();
+            await Save();
         }
     }
 }
